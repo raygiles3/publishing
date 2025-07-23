@@ -13,7 +13,7 @@
     output.textContent = 'Thinking...';
 
     try {
-      const res = await fetch('https://api.render.com/deploy/srv-d1vq45buibrs739liefg?key=E23jvBcMmng', {
+      const res = await fetch('http://localhost:3001/api/gpt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: prompt })
