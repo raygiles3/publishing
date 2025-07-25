@@ -26,7 +26,7 @@ jobs:
     - name: Build and Deploy (Example - adjust based on your deployment target)
       env:
         # Provide the secret as an environment variable during the build/deploy process
-        GPT_API_KEY: ${{ secrets.GPT_API_KEY }}
+        GPT_API_KEY: ${{ secrets.API_KEY }}
         # Add other environment variables as needed (e.g., database URLs, other API keys)
       run: |
         # Replace with your actual deployment commands
