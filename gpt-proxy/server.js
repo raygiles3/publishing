@@ -5,7 +5,7 @@ const fetch = require('node-fetch'); // For making HTTP requests to GPT API
 const cors = require('cors'); // For handling cross-origin requests
 
 const app = express();
-const port = process.env.PORT || 3001; // Use port 3001 as in your fetch request
+const port = process.env.API_KEY; // Use port 3001 as in your fetch request
 
 // Middleware
 app.use(cors()); // Configure CORS as needed for security
