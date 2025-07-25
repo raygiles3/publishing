@@ -16,7 +16,7 @@ app.post('/gpt-proxy', async (req, res) => {
     const userMessage = req.body.message;
 
     // Retrieve your GPT API key from environment variables (loaded by dotenv)
-    const gptApiKey = process.env.GPT_API_KEY;
+    const gptApiKey = process.env.API_KEY;
 
     if (!gptApiKey) {
         console.error("GPT_API_KEY is not set in environment variables.");
