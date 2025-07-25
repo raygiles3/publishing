@@ -28,7 +28,7 @@ app.post('/gpt-proxy', async (req, res) => {
         // (This example assumes OpenAI API; adjust as needed for your specific GPT API)
         const gptApiUrl = 'https://api.openai.com/v1/chat/completions'; // Example URL
         const gptPayload = {
-            model: "gpt-3.5-turbo", // Or another model you are using
+            model: "GPT-4o mini", // Or another model you are using
             messages: [{ role: "user", content: userMessage }],
             max_tokens: 150
         };
