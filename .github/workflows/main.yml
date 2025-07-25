@@ -1,19 +1,41 @@
 yaml
 
-name: Secure Fetch
-on: [push]
+# .github/workflows/deploy-backend.yml
+name: Deploy Backend GPT Proxy
+
+on:
+  push:
+    branches:
+      - main # Or whatever your deployment branch is
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Run script with secret
-        run: |
-          node -e "const token = process.env.GITHUB_TOKEN; // Access the secret
-          fetch('https://api.github.com/user', {
-            headers: {
-              Authorization: `token ${token}`
-            }
-          }).then(res => res.json()).then(data => console.log(data));"
-        env:
-          GITHUB_TOKEN: ${{ secrets.API_KEY }} #   Replace MY_PAT with your secret name.
+    - uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Specify your Node.js version
+
+    - name: Install dependencies
+      run: npm install # Or yarn install, pnpm install
+
+    - name: Build and Deploy (Example - adjust based on your deployment target)
+      env:
+        # Provide the secret as an environment variable during the build/deploy process
+        GPT_API_KEY: ${{ secrets.GPT_API_KEY }}
+        # Add other environment variables as needed (e.g., database URLs, other API keys)
+      run: |
+        # Replace with your actual deployment commands
+        # For example, if deploying to a server:
+        # scp -r . user@your-server:/var/www/your-app
+        # ssh user@your-server "cd /var/www/your-app && npm install && npm start"
+
+        # Or if deploying to a cloud service (e.g., Heroku, AWS Elastic Beanstalk, Azure App Service)
+        # using their specific CLI commands, which will pick up the environment variables.
+        echo "Simulating deployment with GPT_API_KEY..."
+        echo "GPT_API_KEY is available during this step."
+        # Your deployment logic here will automatically get the GPT_API_KEY from env
